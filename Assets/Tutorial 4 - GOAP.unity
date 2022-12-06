@@ -2055,19 +2055,41 @@ PrefabInstance:
       value: Nurse
       objectReference: {fileID: 0}
     - target: {fileID: 3335283054969507276, guid: 51e437be22296b340954bf6591a60065, type: 3}
-      propertyPath: preConditions.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335283054969507276, guid: 51e437be22296b340954bf6591a60065, type: 3}
-      propertyPath: preConditions.Array.data[1].key
-      value: FreeCubicle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335283054969507276, guid: 51e437be22296b340954bf6591a60065, type: 3}
-      propertyPath: preConditions.Array.data[1].value
-      value: 1
+      propertyPath: afterEffects.Array.data[0].key
+      value: patientPickedup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51e437be22296b340954bf6591a60065, type: 3}
+--- !u!1 &1219583315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2618188073631541129, guid: 51e437be22296b340954bf6591a60065, type: 3}
+  m_PrefabInstance: {fileID: 1219583314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1219583320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219583315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1c4cd2aa4dbae4a8fdcce26b4c7f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Go To Cubicle
+  cost: 1
+  target: {fileID: 0}
+  targetTag: 
+  duration: 0
+  preConditions:
+  - key: patientPickedup
+    value: 0
+  afterEffects:
+  - key: treatPatient
+    value: 0
+  agent: {fileID: 0}
+  running: 0
 --- !u!1 &1300565946
 GameObject:
   m_ObjectHideFlags: 0
@@ -4322,30 +4344,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8447257072534393269, guid: f8c47fc44cb868443b4be6e77b86216c, type: 3}
   m_PrefabInstance: {fileID: 6445717495367037791}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4695191399934349520 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4695191399934349520, guid: f8c47fc44cb868443b4be6e77b86216c, type: 3}
-  m_PrefabInstance: {fileID: 6445717495367037791}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3191194390904103658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb4c03115b03551459337fb877aaf4ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4695191399934349521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3191194390904103658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ce8d09e5c4f8684db3c65508231a11d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisAgent: {fileID: 4695191399934349520}
 --- !u!1001 &6445717495367037791
 PrefabInstance:
   m_ObjectHideFlags: 0
