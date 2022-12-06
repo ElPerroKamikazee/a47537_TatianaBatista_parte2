@@ -2487,10 +2487,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8432347221023546401}
   - component: {fileID: 1755104622643585939}
-  - component: {fileID: 1755104622643585938}
-  - component: {fileID: 1755104622643585965}
-  - component: {fileID: 1755104622643585964}
-  - component: {fileID: 1755104622643585967}
+  - component: {fileID: 4695191399934349520}
+  - component: {fileID: 4695191399934349519}
+  - component: {fileID: 4695191399934349518}
+  - component: {fileID: 4695191399934349517}
+  - component: {fileID: 1379009237808971767}
+  - component: {fileID: 4695191399934349521}
   m_Layer: 0
   m_Name: Patient
   m_TagString: Untagged
@@ -2536,7 +2538,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1755104622643585938
+--- !u!114 &4695191399934349520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2545,7 +2547,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8447257072534393269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a00e6c28b974a798eb6d871ba3c88c, type: 3}
+  m_Script: {fileID: 11500000, guid: eb4c03115b03551459337fb877aaf4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: []
+  currentAction: {fileID: 0}
+--- !u!114 &4695191399934349519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8447257072534393269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c79e2e5f5920184597326c5d09aed05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Go To Hospital
@@ -2556,10 +2572,10 @@ MonoBehaviour:
   preConditions: []
   afterEffects:
   - key: hasArrived
-    value: 1
+    value: 0
   agent: {fileID: 0}
   running: 0
---- !u!114 &1755104622643585965
+--- !u!114 &4695191399934349518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2568,32 +2584,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8447257072534393269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6065cbf0814e84fe096ae7aa08d0acc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionName: Go To Waiting Room
-  cost: 1
-  target: {fileID: 0}
-  targetTag: WaitingArea
-  duration: 0
-  preConditions:
-  - key: hasRegistered
-    value: 0
-  afterEffects:
-  - key: isWaiting
-    value: 0
-  agent: {fileID: 0}
-  running: 0
---- !u!114 &1755104622643585964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8447257072534393269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6ce71c2bc43e4322aa69d4adfa05158, type: 3}
+  m_Script: {fileID: 11500000, guid: 6597eac7330173c45b1e243f699a590e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Register
@@ -2609,7 +2600,7 @@ MonoBehaviour:
     value: 0
   agent: {fileID: 0}
   running: 0
---- !u!114 &1755104622643585967
+--- !u!114 &4695191399934349517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2618,11 +2609,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 8447257072534393269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9a1bc4a1633424ea04ee0e361085c0, type: 3}
+  m_Script: {fileID: 11500000, guid: bdbf81bd85711be468e402257ceb9963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actions: []
-  currentAction: {fileID: 0}
+  actionName: Go To Waiting Room
+  cost: 1
+  target: {fileID: 0}
+  targetTag: WaitingArea
+  duration: 0
+  preConditions:
+  - key: hasRegistered
+    value: 0
+  afterEffects:
+  - key: isWaiting
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+--- !u!114 &1379009237808971767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8447257072534393269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd6f6b5124b16c429a6179ca71b16ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Get Treated
+  cost: 1
+  target: {fileID: 0}
+  targetTag: 
+  duration: 0
+  preConditions:
+  - key: atHospital
+    value: 1
+  afterEffects:
+  - key: isTreated
+    value: 1
+  agent: {fileID: 0}
+  running: 0
+--- !u!114 &4695191399934349521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8447257072534393269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ce8d09e5c4f8684db3c65508231a11d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisAgent: {fileID: 4695191399934349520}
 --- !u!1 &8527655195399025694
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,9 @@ public abstract class GAction : MonoBehaviour {
     public Dictionary<string, int> effects;
     // State of the agent
     public WorldStates agentBeliefs;
+    // Access our inventory
+    public GInventory inventory;
+    public WorldStates beliefs;
     // Are we currently performing an action?
     public bool running = false;
 
@@ -42,7 +45,8 @@ public abstract class GAction : MonoBehaviour {
         // Get hold of the agents NavMeshAgent
         agent = this.gameObject.GetComponent<NavMeshAgent>();
 
-        // Check validity of preConditions
+        // Check if there are any preConditions in the Inspector
+        // and add to the dictionary
         if (preConditions != null) {
 
             foreach (WorldState w in preConditions) {
@@ -52,7 +56,8 @@ public abstract class GAction : MonoBehaviour {
             }
         }
 
-        // Check validity of afterEffects
+        // Check if there are any afterEffects in the Inspector
+        // and add to the dictionary
         if (afterEffects != null) {
 
             foreach (WorldState w in afterEffects) {
@@ -61,6 +66,10 @@ public abstract class GAction : MonoBehaviour {
                 effects.Add(w.key, w.value);
             }
         }
+        // Populate our inventory
+        inventory = this.GetComponent<GAgent>().inventory;
+        // Get our agents beliefs
+        beliefs = this.GetComponent<GAgent>().beliefs;
     }
 
     public bool IsAchievable() {
@@ -68,6 +77,8 @@ public abstract class GAction : MonoBehaviour {
         return true;
     }
 
+    //check if the action is achievable given the condition of the
+    //world and trying to match with the actions preconditions
     public bool IsAhievableGiven(Dictionary<string, int> conditions) {
 
         foreach (KeyValuePair<string, int> p in preconditions) {
